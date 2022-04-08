@@ -12,9 +12,9 @@ join salary on salary_id = salary.id where monthly_salary < 2000;
 
 --Вывести все зарплатные позиции, но работник по ним не назначен (ЗП есть, но не понятно кто её получает)
 
-select salary.monthly_salary from employees
-join employee_salary on employee_id = employees.id
-join salary on salary_id = salary.id;
+select monthly_salary from salary s
+full join employee_salary es on s.id = es.salary_id
+where es.employee_id is null
 
 --Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен (ЗП есть, но не понятно кто её получает)
 
